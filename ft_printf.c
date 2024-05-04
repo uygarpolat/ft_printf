@@ -6,7 +6,7 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 08:47:38 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/04 15:23:48 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/04 17:35:09 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,19 +172,19 @@ int	caster(va_list *arg, const char s)
 
 	result = 0;
 	if (s == 'd' || s == 'i')
-		result += print_d(va_arg(*arg, int));
+		result = print_d(va_arg(*arg, int));
 	if (s == 's')
-		result += print_s(va_arg(*arg, char *));
+		result = print_s(va_arg(*arg, char *));
 	if (s == 'c')
-		result += print_c(va_arg(*arg, int));
+		result = print_c(va_arg(*arg, int));
 	if (s == 'p')
-		result += print_p(va_arg(*arg, void *));
+		result = print_p(va_arg(*arg, void *));
 	if (s == 'u')
-		result += print_u(va_arg(*arg, unsigned int));
+		result = print_u(va_arg(*arg, unsigned int));
 	if (s == 'x' || s == 'X')
-		result += print_x(va_arg(*arg, int), s);
-	//if (s == '%')
-	//	result += print_percent(va_arg(*arg, int));
+		result = print_x(va_arg(*arg, int), s);
+	if (s == '%')
+		result = print_percent(va_arg(*arg, int));
 	return (result);
 }
 
@@ -202,10 +202,7 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			if (s[i + 1] == '%')
-			{
-				ft_putchar_fd(s[++i], 1);
-				res++;
-			}
+				res += print_percent(s[++i]);
 			else
 				res += caster(&arg, s[++i]);
 		}
@@ -219,71 +216,3 @@ int	ft_printf(const char *s, ...)
 	va_end(arg);
 	return (res);
 }
-
-int main(void)
-{
-	int printf_result;
-	int ft_printf_result;
-	char *str = "890123456";
-	int nbr = 67890;
-	char c = 'L';
-	int nbr2 = 1234567;
-	unsigned int unint = 23423523;
-
-	printf_result = printf("1234567%s%d%c%i-%%%p-%%%u-%x-%X", str, nbr, c, nbr2, &str, unint, nbr2, nbr2);
-	printf("\n");
-	ft_printf_result = ft_printf("1234567%s%d%c%i-%%%p-%%%u-%x-%X", str, nbr, c, nbr2, &str, unint, nbr2, nbr2);
-	if (printf_result == ft_printf_result)
-		printf("\nReturn value of printf is equal to ft_printf (%d vs %d).", printf_result, ft_printf_result);
-	else
-		printf("\nReturn value of printf is NOT equal to ft_printf (%d vs %d).", printf_result, ft_printf_result);
-	return (0);
-}
-
-/*
-int main(void)
-{
-	char *str1 = "324tg234g";
-	char *str2 = "324tg234g";
-	char *str3 = "324tg234g";
-	char *str4 = "324tg234g";
-	char *str5 = "324tg234g";
-	char *str6 = "324tg234g";
-	char *str7 = "324tg234g";
-	char *str8 = "324tg234g";
-	char *str9 = "324tg234g";
-	char *str0 = "324tg234g";
-
-	printf("%p\n", &str1);
-	ft_printf("%p", &str1);
-	printf("\n-----\n");
-	printf("%p\n", &str2);
-	ft_printf("%p", &str2);
-	printf("\n-----\n");
-	printf("%p\n", &str3);
-	ft_printf("%p", &str3);
-	printf("\n-----\n");
-	printf("%p\n", &str4);
-	ft_printf("%p", &str4);
-	printf("\n-----\n");
-	printf("%p\n", &str5);
-	ft_printf("%p", &str5);
-	printf("\n-----\n");
-	printf("%p\n", &str6);
-	ft_printf("%p", &str6);
-	printf("\n-----\n");
-	printf("%p\n", &str7);
-	ft_printf("%p", &str7);
-	printf("\n-----\n");
-	printf("%p\n", &str8);
-	ft_printf("%p", &str8);
-	printf("\n-----\n");
-	printf("%p\n", &str9);
-	ft_printf("%p", &str9);
-	printf("\n-----\n");
-	printf("%p\n", &str0);
-	ft_printf("%p", &str0);
-	printf("\n-----\n");
-	return (0);
-}
-*/
