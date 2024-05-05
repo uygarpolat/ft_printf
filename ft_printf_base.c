@@ -6,7 +6,7 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:11:46 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 18:24:52 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 20:18:05 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,41 +49,6 @@ static int	base_checker(char *base)
 		return (0);
 	return (i);
 }
-/*
-static void	special_case(int nb, int len, char *base)
-{
-	ft_putnbr_base(nb / len, base);
-	ft_putnbr_base(-(nb % len), base);
-}
-*/
-/*
-int	ft_putnbr_base(unsigned int nb, char *base)
-{
-	char			c;
-	unsigned int	len;
-	int				total_length;
-
-	total_length = 0;
-	len = base_checker(base);
-	if (base_checker(base) > 0)
-	{
-		if (nb < len)
-		{
-			c = base[nb];
-			ft_putchar_fd(c, 1);
-			total_length++;
-		}
-		else
-		{
-			total_length += ft_putnbr_base((nb / len), base);
-			c = base[nb % len];
-			ft_putchar_fd(c, 1);
-			total_length++;
-		}
-	}
-	return (total_length);
-}
-*/
 
 int	ft_putnbr_base_unsigned(uintptr_t nb, char *base)
 {

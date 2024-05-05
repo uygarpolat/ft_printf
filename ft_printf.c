@@ -6,7 +6,7 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 08:47:38 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 19:06:30 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 20:08:48 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ int	caster(va_list *arg, const char c)
 	return (result);
 }
 
+static int	print_non_percent(const char c)
+{
+	if (ft_putchar_fd_int(c, 1) == -1)
+		return (-1);
+	return (1);
+}
+
 int	ft_printf(const char *s, ...)
 {
 	va_list	arg;
@@ -53,15 +60,10 @@ int	ft_printf(const char *s, ...)
 				res = caster(&arg, s[i++]);
 		}
 		else
-		{
-			if (ft_putchar_fd_int(s[i++], 1) == -1)
-				return (-1);
-			res = 1;
-		}
+			res = print_non_percent(s[i++]);
 		if (res == -1)
 			return (-1);
-		else
-			total_result = total_result + res;
+		total_result = total_result + res;
 	}
 	va_end(arg);
 	return (total_result);
