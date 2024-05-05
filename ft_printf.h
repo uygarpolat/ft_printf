@@ -6,7 +6,7 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:12:17 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 13:25:59 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 15:28:28 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		print_u(unsigned int d);
 int		print_p_x(void *voidstr, const char c);
 
 // ft_printf_utils.c
+int		ft_putchar_fd_int(char c, int fd);
 char	*ft_utoa(unsigned int d);
 
 // ft_printf_base.c

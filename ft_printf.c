@@ -6,7 +6,7 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 08:47:38 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 13:26:11 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 19:06:30 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	caster(va_list *arg, const char c)
 		result = print_p_x(va_arg(*arg, void *), c);
 	if (c == 'u')
 		result = print_u(va_arg(*arg, unsigned int));
+	if (result == -1)
+		return (-1);
 	return (result);
 }
 
@@ -36,26 +38,31 @@ int	ft_printf(const char *s, ...)
 	va_list	arg;
 	int		res;
 	int		i;
+	int		total_result;
 
 	i = 0;
-	res = 0;
+	total_result = 0;
 	va_start(arg, s);
 	while (s[i])
 	{
 		if (s[i] == '%')
 		{
-			if (s[i + 1] == '%')
-				res += print_c(s[++i]);
+			if (s[++i] == '%')
+				res = print_c(s[i++]);
 			else
-				res += caster(&arg, s[++i]);
+				res = caster(&arg, s[i++]);
 		}
 		else
 		{
-			ft_putchar_fd(s[i], 1);
-			res++;
+			if (ft_putchar_fd_int(s[i++], 1) == -1)
+				return (-1);
+			res = 1;
 		}
-		i++;
+		if (res == -1)
+			return (-1);
+		else
+			total_result = total_result + res;
 	}
 	va_end(arg);
-	return (res);
+	return (total_result);
 }

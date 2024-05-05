@@ -6,7 +6,7 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 13:12:00 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 13:42:36 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 18:41:10 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,60 @@ int	print_d_i(int d)
 {
 	char	*nbr;
 	int		result;
+	int		i;
 
+	i = 0;
 	result = 0;
 	nbr = ft_itoa(d);
+	if (nbr == NULL)
+		return (-1);
 	result = ft_strlen(nbr);
-	ft_putstr_fd(nbr, 1);
+	while (nbr[i])
+	{
+		if (ft_putchar_fd_int(nbr[i], 1) == -1)
+		{
+			free(nbr);
+			return (-1);
+		}
+		i++;
+	}
 	free(nbr);
 	return (result);
 }
 
 int	print_s(char *s)
 {
-	int	result;
+	int		result;
+	char	*null;
+	int		i;
 
+	i = 0;
+	null = "(null)";
 	if (s == NULL)
 	{
-		ft_putstr_fd("(null)", 1);
+		while (null[i])
+		{
+			if (ft_putchar_fd_int(null[i], 1) == -1)
+				return (-1);
+			i++;
+		}
 		return (6);
 	}
+	i = 0;
 	result = ft_strlen(s);
-	ft_putstr_fd(s, 1);
+	while (s[i])
+	{
+		if (ft_putchar_fd_int(s[i], 1) == -1)
+			return (-1);
+		i++;
+	}
 	return (result);
 }
 
 int	print_c(char c)
 {
-	ft_putchar_fd(c, 1);
+	if (ft_putchar_fd_int(c, 1) == -1)
+		return (-1);
 	return (1);
 }
 
@@ -52,6 +80,8 @@ int	print_u(unsigned int d)
 	int		len;
 
 	str = ft_utoa(d);
+	if (str == NULL)
+		return (-1);
 	len = ft_strlen(str);
 	free(str);
 	return (len);
@@ -72,9 +102,13 @@ int	print_p_x(void *voidstr, const char c)
 		len = ft_putnbr_base_unsigned(uint, "0123456789ABCDEF");
 	else if (c == 'p')
 	{
-		ft_putstr_fd("0x", 1);
-		len += 2;
-		len += ft_putnbr_base_unsigned(iptr, "0123456789abcdef");
+		if (ft_putchar_fd_int('0', 1) == -1)
+			return (-1);
+		if (ft_putchar_fd_int('x', 1) == -1)
+			return (-1);
+		len = ft_putnbr_base_unsigned(iptr, "0123456789abcdef");
+		if (len != -1)
+			len += 2;
 	}
 	return (len);
 }
