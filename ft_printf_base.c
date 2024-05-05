@@ -6,11 +6,10 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:11:46 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 20:18:05 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 20:50:59 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 static int	duplicate_character_checker(char *base)
