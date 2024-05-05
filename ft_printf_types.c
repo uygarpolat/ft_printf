@@ -6,7 +6,7 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 13:12:00 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 18:41:10 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 20:50:41 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,28 +112,3 @@ int	print_p_x(void *voidstr, const char c)
 	}
 	return (len);
 }
-
-/*
-int	print_p(void *voidstr)
-{
-	int			len;
-	uintptr_t	iptr;
-
-	iptr = (uintptr_t)voidstr;
-	ft_putstr_fd("0x", 1);
-	len = 2;
-	len += ft_putnbr_base_unsigned(iptr, "0123456789abcdef");
-	return (len);
-}
-
-int	print_x(unsigned int d, const char c)
-{
-	int	len;
-
-	if (c == 'x')
-		len = ft_putnbr_base_unsigned(d, "0123456789abcdef");
-	else
-		len = ft_putnbr_base_unsigned(d, "0123456789ABCDEF");
-	return (len);
-}
-*/
