@@ -6,11 +6,10 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 08:47:38 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 20:08:48 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 20:48:40 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 int	caster(va_list *arg, const char c)
