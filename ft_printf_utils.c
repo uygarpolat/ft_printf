@@ -6,12 +6,11 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 22:51:54 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 18:57:15 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/05 20:52:46 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 #include "ft_printf.h"
 
 int	ft_putchar_fd_int(char c, int fd)
