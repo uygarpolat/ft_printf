@@ -6,7 +6,7 @@
 #    By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/04 17:49:46 by upolat            #+#    #+#              #
-#    Updated: 2024/05/05 13:14:36 by upolat           ###   ########.fr        #
+#    Updated: 2024/05/06 11:57:52 by upolat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ         = $(SRC:.c=.o)
 all:        $(NAME)
 
 $(NAME):    $(OBJ)
-	@make -C $(LIBFT_DIR)      # Make sure libft is compiled
+	@make -C $(LIBFT_DIR)      # make libft
 	@cp $(LIBFT_LIB) $(NAME)   # Copy libft.a to current directory
 	@$(AR) $(NAME) $(OBJ)      # Add ft_printf.o to libftprintf.a
 	@echo "libftprintf.a created successfully!"
@@ -40,8 +40,8 @@ clean:
 	@make clean -C $(LIBFT_DIR)
 
 fclean:     clean
-	$(RM) $(NAME)
-	@make fclean -C $(LIBFT_DIR)
+			$(RM) $(NAME)
+			@make fclean -C $(LIBFT_DIR)
 
 re:         fclean all
 
