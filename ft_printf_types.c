@@ -6,7 +6,7 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 13:12:00 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 20:50:41 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/06 10:09:30 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,7 @@ int	print_s(char *s)
 
 int	print_c(char c)
 {
-	if (ft_putchar_fd_int(c, 1) == -1)
-		return (-1);
-	return (1);
+	return (ft_putchar_fd_int(c, 1));
 }
 
 int	print_u(unsigned int d)
