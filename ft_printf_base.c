@@ -6,32 +6,11 @@
 /*   By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 10:11:46 by upolat            #+#    #+#             */
-/*   Updated: 2024/05/05 20:50:59 by upolat           ###   ########.fr       */
+/*   Updated: 2024/05/06 16:23:29 by upolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int	duplicate_character_checker(char *base)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (base[i] != 0)
-	{
-		j = i + 1;
-		while (base[j] != 0)
-		{
-			if (base[i] == base[j])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
 
 static int	base_checker(char *base)
 {
@@ -44,8 +23,6 @@ static int	base_checker(char *base)
 			return (0);
 		i++;
 	}
-	if (i < 2 || duplicate_character_checker(base) == 0)
-		return (0);
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 #    By: upolat <upolat@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/04 17:49:46 by upolat            #+#    #+#              #
-#    Updated: 2024/05/06 11:57:52 by upolat           ###   ########.fr        #
+#    Updated: 2024/05/06 16:20:25 by upolat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME        = libftprintf.a
 LIBFT_DIR   = libft
 LIBFT_LIB   = $(LIBFT_DIR)/libft.a
-CC          = gcc
+CC          = cc
 CFLAGS      = -Wall -Werror -Wextra -I$(LIBFT_DIR) -I.
 AR          = ar rcs
 RM          = rm -f
